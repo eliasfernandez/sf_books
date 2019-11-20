@@ -331,7 +331,7 @@ class ImageToFileReferenceUpdate implements \TYPO3\CMS\Install\Updates\UpgradeWi
         $fileadminDirectory = rtrim($GLOBALS['TYPO3_CONF_VARS']['BE']['fileadminDir'], '/') . '/';
         $i = 0;
 
-        if (!Environment::getPublicPath() . '/') {
+        if (!Environment::getPublicPath()) {
             throw new \Exception('Public path was undefined.', 1476107387);
         }
 
