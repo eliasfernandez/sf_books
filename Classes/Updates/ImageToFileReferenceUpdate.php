@@ -186,6 +186,7 @@ class ImageToFileReferenceUpdate implements \TYPO3\CMS\Install\Updates\UpgradeWi
         $this->logger = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Log\LogManager::class)->getLogger(__CLASS__);
 
         $customMessage = '';
+        $dbQueries = [];
         try {
             $this->prepareOffset();
             $this->getStorage();
@@ -203,7 +204,6 @@ class ImageToFileReferenceUpdate implements \TYPO3\CMS\Install\Updates\UpgradeWi
         } catch (\Exception $e) {
             $customMessage .= PHP_EOL . $e->getMessage();
         }
-
         return empty($customMessage);
     }
 
@@ -442,6 +442,8 @@ class ImageToFileReferenceUpdate implements \TYPO3\CMS\Install\Updates\UpgradeWi
         } else {
             $this->recordOffset[$this->table]++;
         }
+
+
     }
 
 
